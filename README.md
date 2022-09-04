@@ -1,4 +1,4 @@
-# tsd3050lab2
+# TSD3050 - LAB2
 Lab2 matherial for the cource TSD3050 at usn.no
 
 Examples is based on programs found at:
