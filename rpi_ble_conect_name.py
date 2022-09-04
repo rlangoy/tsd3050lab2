@@ -35,7 +35,7 @@ for adv in radio.start_scan(Advertisement, timeout=5):
     if not name:
         continue
     #  devices may have trailing nulls on their name.
-    if name.strip("\x00") ==  "rul_ble":        
+    if name.strip("\x00") ==  "RunesBLE":        
         nrf52_connection = radio.connect(adv)
         #Stop scanning whether or not we are connected.
         radio.stop_scan()
