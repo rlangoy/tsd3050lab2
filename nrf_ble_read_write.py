@@ -28,7 +28,7 @@ class myDataService(Service):
 _bleio.adapter.enabled=0
 _bleio.adapter.enabled=1
 
-# Create Service width Characteristic to turn-on/off leds
+# Create Service width Characteristics
 dataService=myDataService()
 
 #Start BLE-Radio
