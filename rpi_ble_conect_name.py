@@ -30,7 +30,7 @@ print("scanning")
 
 nrf52_connection=0
 
-for adv in radio.start_scan(Advertisement, timeout=5):
+for adv in radio.start_scan(Advertisement, timeout=10):
     name = adv.complete_name
     if not name:
         continue
