@@ -33,7 +33,7 @@ dataService=myDataService()
 
 #Start BLE-Radio
 ble = BLERadio()
-ble._clean_connection_cache()
+
 ble.name = "RunesBLE"
 
 #Fortell verden hvem du er og hva du kan gjøre
