@@ -23,6 +23,7 @@ from adafruit_ble.characteristics.int import Uint8Characteristic
 from adafruit_ble.characteristics.int import Uint16Characteristic
 from adafruit_ble.characteristics.int import Uint32Characteristic
 
+button_state = 0
 
 class myDataService(Service):
     uuid = StandardUUID(0xA000) # (0xA000 - my/Custom Service ID)
@@ -30,6 +31,7 @@ class myDataService(Service):
         max_value=255,
         properties=Characteristic.READ | Characteristic.NOTIFY  ,
         uuid=StandardUUID(0xA001), #0ls -alcat xA002 -my/ID Write-to-Leds ID
+#        value=bytes([button_state])
     )
 
     myInData = Uint8Characteristic(
@@ -86,9 +88,12 @@ while True:
     ble.stop_advertising()
     batNivaa=80
     oldLedVal=0
-    buttonVal=0
+    buttonVal=False
     while ble.connected:
-       
+        if(buttonVal != switch.value):
+             buttonVal = switch.value
+             dataService.myOutData=buttonVal
+             
         newLedValue=dataService.myInData # Leser verdien som kommer inn fra bruker
         if(oldLedVal != newLedValue) :
             if(newLedValue == 1): #Slår på LED 1 
